@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DoubleV² - Фріланс сайти та Онлайн Казино</title>
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e0e;
+      color: #eee;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #00ffb3;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #00b389;
+    }
+  header {
+  position: sticky;
+  top: 0;
+  background: #111;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+    }
+    header h1 {
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 2px;
+      cursor: default;
+      user-select: none;
+      color: #00ffb3;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+    }
+    nav ul li {
+      font-weight: 600;
+    }
+    nav ul li a {
+      font-size: 1rem;
+      padding: 0.2rem 0.4rem;
+    }
+    nav ul li a.active,
+    nav ul li a:hover {
+      border-bottom: 2px solid #00ffb3;
+      font-weight: 700;
+    }
+
+    main {
+      margin-top: 80px;
+    }
+
+    /* Hero Section */
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      height: 90vh;
+      padding: 0 2rem;
+      /* Changed from greenish to grayish gradient overlay */
+      background: linear-gradient(135deg, rgba(160, 160, 160, 0.6), rgba(80, 80, 80, 0.8)), url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+      border-radius: 0 0 50px 50px;
+      color: #d0d0d0;
+      text-shadow: 0 0 10px #a0a0a0bb;
+    }
+    #home h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 0.3rem;
+      font-family: 'Orbitron', sans-serif;
+    }
+    #home p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 1.5rem;
+      color: #bbbbbb;
+      font-weight: 600;
+    }
+    #home .btn {
+      background: #00ffb3;
+      color: #012a24;
+      padding: 0.85rem 2rem;
+      border-radius: 35px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #00ffb38a;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      font-size: 1rem;
+    }
+    #home .btn:hover {
+      background: #00b389;
+      box-shadow: 0 7px 20px #00b389cc;
+    }
+
+    /* Section common style */
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+    }
+    section h2 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 1em;
+      color: #00ffb3;
+      letter-spacing: 1px;
+      text-align: center;
+      font-family: 'Orbitron', sans-serif;
+      text-shadow: 0 0 5px #00ffb3bb;
+    }
+
+    /* Our Works */
+    #works .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    #works .gallery-item {
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,255,179,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    #works .gallery-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(0,255,179,0.8);
+    }
+    #works img {
+      width: 100%;
+      display: block;
+      filter: drop-shadow(0 0 3px #00ffb3aa);
+      object-fit: cover;
+      height: 180px;
+    }
+    #works .caption {
+      padding: 0.8rem 1rem;
+      color: #00ffb3cc;
+      font-weight: 600;
+      font-size: 1rem;
+      text-align: center;
+      background: #0009;
+    }
+
+    /* Prices */
+    #prices .price-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    #prices .card {
+      background: #111;
+      padding: 2rem;
+      border-radius: 20px;
+      flex: 1 1 280px;
+      max-width: 320px;
+      box-shadow: 0 4px 25px rgba(0,255,179,0.3);
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: #00ffb3;
+    }
+    #prices .card:hover {
+      box-shadow: 0 7px 30px rgba(0,255,179,0.8);
+    }
+    #prices .card h3 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px #00ffb3bb;
+    }
+    #prices .card p.price {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      color: #00ffc2;
+    }
+    #prices .card ul {
+      list-style: none;
+      margin-bottom: 1.5rem;
+      width: 100%;
+    }
+    #prices .card ul li {
+      padding-left: 1rem;
+      margin: 0.5rem 0;
+      position: relative;
+      font-weight: 600;
+      color: #ccf7e5;
+    }
+    #prices .card ul li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #00ffb3;
+    }
+    #prices .card button {
+      background: #00ffb3;
+      border: none;
+      border-radius: 25px;
+      padding: 0.7rem 1.8rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #012a24;
+      cursor: pointer;
+      box-shadow: 0 5px 15px #00ffb38a;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      align-self: center;
+    }
+    #prices .card button:hover {
+      background: #00b389;
+      box-shadow: 0 7px 20px #00b389cc;
+    }
+
+    /* Reviews */
+    #reviews .review-list {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    #reviews .review-card {
+      background: #111;
+      border-radius: 20px;
+      padding: 1.5rem 1.8rem;
+      box-shadow: 0 4px 25px rgba(0,255,179,0.3);
+      color: #00ffb3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: box-shadow 0.3s ease;
+    }
+    #reviews .review-card:hover {
+      box-shadow: 0 7px 30px rgba(0,255,179,0.8);
+    }
+    #reviews .review-text {
+      font-style: italic;
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+      color: #ccf7e5;
+      flex-grow: 1;
+    }
+    #reviews .review-author {
+      font-weight: 900;
+      font-size: 1.1rem;
+      text-align: right;
+      color: #00ffc2;
+      font-family: 'Orbitron', sans-serif;
+    }
+
+    footer {
+      background: #000a;
+      color: #008053cc;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      #home h2 {
+        font-size: 2.2rem;
+      }
+      header {
+        padding: 1rem;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      #prices .price-cards, #reviews .review-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>DoubleV²</h1>
+  <nav>
+    <ul>
+      <li><a href="#home" class="active">Головна</a></li>
+      <li><a href="#works">Наші роботи</a></li>
+      <li><a href="#prices">Ціни</a></li>
+      <li><a href="#reviews">Відгуки</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="home" aria-label="Головна сторінка">
+    <h2>DoubleV²</h2>
+    <p>Професійна розробка сайтів і онлайн казино на фрілансі, а також інші.</p>
+    <button class="btn" onclick="scrollToSection('works')">Переглянути наші роботи</button>
+  </section>
+
+  <section id="works" aria-label="Наші роботи">
+    <h2>Наші роботи</h2>
+    <p style="text-align:center; max-width:700px; margin: 0 auto 2rem;">
+    </p>
+    <div class="gallery">
+      <div class="gallery-item" tabindex="0" aria-label="Робота 1">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Приклад робота сайт 1" />
+        <div class="caption">Сайт для бізнесу</div>
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Робота 2">
+        <img src="https://psm7.com/wp-content/uploads/2017/12/E-commerce-2018_1.jpg" alt="Приклад робота сайт 2"/>
+        <div class="caption">Інтернет-магазин</div>
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Робота 3">
+        <img src="https://fun.24tv.ua/resources/photos/news/202110/1778591.jpg?v=1661259130000&w=768&h=432&fit=cover&output=webp&q=70" alt="Приклад робота сайт 3"/>
+        <div class="caption">Онлайн казино</div>
+      </div>
+      <div class="gallery-item" tabindex="0" aria-label="Робота 4">
+        <img src="https://miro.medium.com/v2/resize:fit:1080/1*xVuwM_eYJBjRX_o8FwnsyQ.jpeg" alt="Приклад робота сайт 4"/>
+        <div class="caption">Корпоративний сайт</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices" aria-label="Ціни">
+    <h2>Ціни</h2>
+    <div class="price-cards">
+      <article class="card" aria-label="Базовий пакет">
+        <h3>Базовий</h3>
+        <p class="price">₴3 074 | €70</p>
+        <ul>
+          <li>Простий сайт</li>
+          <li>2 сторінки</li>
+          <li>Допомога з сайтом</li>
+          <li>Техпідтримка тиждень</li>
+        </ul>
+        <button>Замовити</button>
+      </article>
+      <article class="card" aria-label="Професійний пакет">
+        <h3>Професійний</h3>
+        <p class="price">₴6 591 | €140</p>
+        <ul>
+          <li>Інтернет-магазин або блог</li>
+          <li>До 5 сторінок</li>
+          <li>Доступ до коду</li>
+          <li>Техпідтримка 2 тижні</li>
+        </ul>
+        <button>Замовити</button>
+      </article>
+      <article class="card" aria-label="Ексклюзивний пакет">
+        <h3>Ексклюзивний</h3>
+        <p class="price">₴10 925 | €230</p>
+        <ul>
+          <li>Онлайн казино, ігри</li>
+          <li>Платіжні системи</li>
+          <li>Доступ до коду</li>
+          <li>Підтримка 1 місяць</li>
+        </ul>
+        <button>Замовити</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="reviews" aria-label="Відгуки">
+    <h2>Відгуки</h2>
+    <div class="review-list">
+      <article class="review-card" aria-label="Відгук Клієнта Олександр">
+        <p class="review-text">"DoubleV² зробили нам сайт за дуже короткий час, усі побажання врахували. Результат перевищив очікування!"</p>
+        <p class="review-author">— Олександр, Київ</p>
+      </article>
+      <article class="review-card" aria-label="Відгук Клієнта Марина">
+        <p class="review-text">"Працювати з DoubleV² — справжнє задоволення. Онлайн казино працює без збоїв, а дизайн шикарний."</p>
+        <p class="review-author">— Марина, Харків</p>
+      </article>
+      <article class="review-card" aria-label="Відгук Клієнта Андрій">
+        <p class="review-text">"Рекомендую всім, хто хоче отримати якісний сайт під ключ. Професіонали своєї справи!"</p>
+        <p class="review-author">— Андрій, Львів</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2024 DoubleV². Всі права захищені. Техпідтримка: @nikwin_TP 
+</footer>
+
+<script>
+  // Smooth scrolling handled by CSS scroll-behavior, but highlight nav links on scroll:
+
+  const sections = document.querySelectorAll('main section');
+  const navLinks = document.querySelectorAll('nav ul li a');
+
+  function onScroll() {
+    let scrollPos = window.scrollY + window.innerHeight / 3;
+
+    sections.forEach(section => {
+      if(scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`nav ul li a[href="#${section.id}"]`);
+        if(activeLink) activeLink.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', onScroll);
+
+  // Scroll to a section with smooth effect on button click
+  function scrollToSection(id) {
+    document.getElementById(id).scrollIntoView({behavior: 'smooth'});
+  }
+
+</script>
+</body>
+</html>
